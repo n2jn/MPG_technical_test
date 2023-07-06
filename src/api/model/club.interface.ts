@@ -1,6 +1,6 @@
 export interface Jerseys {}
 
-export interface ChampionShips {
+export interface ClubChampionShips {
   active: boolean;
   jerseys: Jerseys;
 }
@@ -11,13 +11,20 @@ export interface ClubName {
   'fr-FR': string;
 }
 
+export interface ClubAssets {
+  logo: {
+    small: string;
+    medium: string;
+  };
+}
+
 export interface Club {
   id: string;
   name: ClubName;
   shortName: string;
-  defaultAssets: Object;
+  defaultAssets: ClubAssets | null;
   defaultJerseyUrl: string;
-  chamionships: Record<string, ChampionShips>;
+  championships: Record<string, ClubChampionShips>;
 }
 
 export interface ChampionshipClub {

@@ -1,5 +1,5 @@
 import {API_URL} from '@env';
-import {ChampionshipClub} from '../model/club.interface';
+import {ChampionshipClub} from './model/club.interface';
 
 const CLUB_URL = API_URL + 'championship-clubs';
 

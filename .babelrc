@@ -1,4 +1,5 @@
 {
+  "presets": ["module:metro-react-native-babel-preset"],
   "plugins": [
     [
       "module:react-native-dotenv",
@@ -6,8 +7,20 @@
         "envName": "APP_ENV",
         "moduleName": "@env",
         "path": ".env",
-        "allowlist": ["API_URL"],
+        "allowlist": ["API_URL", "MMVK_ENCRYPTION_KEY", "MMVK_KEY_ALIAS"],
         "allowUndefined": true
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "root": ["."],
+        "alias": {
+          /**
+           * Regular expression is used to match all files inside `./src` directory and map each `.src/folder/[..]` to `~folder/[..]` path
+           */
+          "^~(.+)": "./src/\\1"
+        }
       }
     ]
   ]

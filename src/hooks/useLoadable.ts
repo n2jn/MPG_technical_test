@@ -1,9 +1,5 @@
 import {useEffect, useState} from 'react';
-
-type InferArgs<T> = T extends (...t: [...infer Arg]) => any ? Arg : never;
-type InferReturn<T> = T extends (...t: any[]) => infer Res
-  ? Awaited<Res>
-  : never;
+import {InferArgs, InferReturn} from '~types/utils';
 
 type ReturnValue<T> = {
   loading: boolean;
@@ -18,7 +14,7 @@ export const useLoadable = <
   fn: T,
 ): ReturnValue<T> => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<any>(null);
   const [data, setData] = useState<InferReturn<T> | null>(null);
 
   useEffect(() => {
